@@ -5,3 +5,10 @@ __pycache__/
 request.json
 response.json
 steps.json
+.env
+recent.json
+*.bak
+*.presort
+*.prefilter
+*.prefavs
+*.prev*

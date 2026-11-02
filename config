@@ -1,4 +1,6 @@
-_CITY=auckland
+#_CITY=auckland
+_CITY=HAMILTON
 _MODE=TRANSIT
+#_MODE=DRIVE
 _PREF=LESS_WALKING
 _COUNTRY=New Zealand

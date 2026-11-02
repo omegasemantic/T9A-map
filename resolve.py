@@ -6,7 +6,7 @@
 import json
 
 CONFIG_FILE = 'config'
-FAVS_FILE = 'favs.json'
+FAVS_FILE = 'favs'
 REQUEST_FILE = 'request.json'
 
 
@@ -22,11 +22,16 @@ def load_config():
             cfg[key.strip()] = value.strip()
     return cfg
 
-
 def load_favs():
+    favs = {}
     with open(FAVS_FILE) as f:
-        return json.load(f)
-
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#') or '=' not in line:
+                continue
+            key, _, value = line.partition('=')
+            favs[key.strip().upper()] = value.strip()
+    return favs
 
 def resolve_token(token, favs, city, country):
     """Turn a typed token into a Routes API origin/destination object."""
