@@ -1,7 +1,4 @@
-% setdefault('recent_start', [])
-% setdefault('recent_dest', [])
 % setdefault('favs', [])
-% setdefault('last_type', 'DEP')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,19 +30,8 @@ select:focus, input:focus {
 <b>START</b><br>
 <select name="start_sel">
   <option value="">-</option>
-% if recent_start:
-  <optgroup label="Recent">
-% for i, r in enumerate(recent_start):
-    <option value="{{r}}"{{!' selected' if i == 0 else ''}}>{{r}}</option>
-% end
-  </optgroup>
-% end
-% if favs:
-  <optgroup label="Favs">
 % for f in favs:
-    <option value="{{f}}">{{f}}</option>
-% end
-  </optgroup>
+  <option value="{{f}}">{{f}}</option>
 % end
 </select>
 <input type="text" name="start_txt">
@@ -53,27 +39,16 @@ select:focus, input:focus {
 <br><b>DEST</b><br>
 <select name="dest_sel">
   <option value="">-</option>
-% if recent_dest:
-  <optgroup label="Recent">
-% for i, r in enumerate(recent_dest):
-    <option value="{{r}}"{{!' selected' if i == 0 else ''}}>{{r}}</option>
-% end
-  </optgroup>
-% end
-% if favs:
-  <optgroup label="Favs">
 % for f in favs:
-    <option value="{{f}}">{{f}}</option>
-% end
-  </optgroup>
+  <option value="{{f}}">{{f}}</option>
 % end
 </select>
 <input type="text" name="dest_txt">
 
 <br>
 <input type="tel" name="time" maxlength="4" placeholder="HHMM" style="width:5em">
-<label><input type="radio" name="type" value="DEP"{{!' checked' if last_type != 'ARR' else ''}}> DEP</label>
-<label><input type="radio" name="type" value="ARR"{{!' checked' if last_type == 'ARR' else ''}}> ARR</label>
+<label><input type="radio" name="type" value="DEP" checked> DEP</label>
+<label><input type="radio" name="type" value="ARR"> ARR</label>
 <br><br>
 <input type="submit" value="Submit">
 </form>
