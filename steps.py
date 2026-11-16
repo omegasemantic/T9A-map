@@ -30,7 +30,7 @@ def build_steps(response_data, origin, dest):
             vehicle = td['transitLine']['vehicle']['name']['text']
             steps.append({
                 'type': vehicle.upper(),
-                'line': td['transitLine'].get('name') or td['transitLine'].get('nameShort', ''),
+                'line': td['transitLine'].get('nameShort') or td['transitLine'].get('name', ''),
                 'headsign': td['headsign'],
                 'depart': td['stopDetails']['departureStop']['name'],
                 'arrive': td['stopDetails']['arrivalStop']['name'],

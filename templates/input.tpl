@@ -1,4 +1,3 @@
-% setdefault('favs', [])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +13,14 @@ body {
 select, input[type=text], input[type=tel] {
   background-color: #ffffff;
   border: 2px solid #333333;
-  width: 100%;
   box-sizing: border-box;
   margin-bottom: 2px;
+}
+select, input[type=text] {
+  width: 100%;
+}
+input[type=tel] {
+  width: 5em;
 }
 select:focus, input:focus {
   background-color: #99ccff;
@@ -33,23 +37,23 @@ select:focus, input:focus {
 % for f in favs:
   <option value="{{f}}">{{f}}</option>
 % end
-</select>
-<input type="text" name="start_txt">
+</select><br>
+<input type="text" name="start_txt"><br>
 
-<br><b>DEST</b><br>
+<b>DEST</b><br>
 <select name="dest_sel">
   <option value="">-</option>
 % for f in favs:
   <option value="{{f}}">{{f}}</option>
 % end
-</select>
-<input type="text" name="dest_txt">
+</select><br>
+<input type="text" name="dest_txt"><br>
 
-<br>
-<input type="tel" name="time" maxlength="4" placeholder="HHMM" style="width:5em">
-<label><input type="radio" name="type" value="DEP" checked> DEP</label>
-<label><input type="radio" name="type" value="ARR"> ARR</label>
-<br><br>
+<b>TIME</b><br>
+<input type="tel" name="time" maxlength="4" placeholder="HHMM" size="4">
+<label><input type="radio" name="type" value="ARR" checked>ARR</label>
+<label><input type="radio" name="type" value="DEP">DEP</label><br><br>
+
 <input type="submit" value="Submit">
 </form>
 <p><a href="/admin">admin</a></p>

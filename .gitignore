@@ -11,3 +11,4 @@ recent.json
 *.prefilter
 *.prefavs
 *.prev*
+old/
